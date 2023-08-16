@@ -4,6 +4,8 @@ import { Ms1Module } from './ms1.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(Ms1Module);
+
   app.listen(3000)
+
 }
 bootstrap();
