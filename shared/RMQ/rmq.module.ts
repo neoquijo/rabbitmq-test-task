@@ -15,7 +15,6 @@ export class RmqModule {
                     {
                         name: name,
                         transport: Transport.RMQ,
-
                         options: {
                             urls: ['amqp://rabbitmq:5672'],
                             queue: queue,
@@ -23,10 +22,7 @@ export class RmqModule {
                                 durable: false
                             },
                             persistent: false,
-
-
                         },
-
                     },
                 ]),
             ],
