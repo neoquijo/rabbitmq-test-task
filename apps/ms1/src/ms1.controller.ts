@@ -12,7 +12,7 @@ export class Ms1Controller {
 
   @Get('/logs')
   getLogs() {
-    return this.getLogs()
+    return this.ms1Service.getLogs()
   }
 
 

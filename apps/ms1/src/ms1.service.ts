@@ -41,6 +41,6 @@ export class Ms1Service {
   }
 
   deleteTask() {
-    return this.send('delete', { id: 'noseque', createdAt: new Date(), type: 'create' })
+    return this.send('delete', { id: 'noseque', createdAt: new Date(), type: 'delete' })
   }
 }
