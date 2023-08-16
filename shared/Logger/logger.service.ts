@@ -16,12 +16,13 @@ export class LoggerService {
             ),
             transports: [
                 new winston.transports.Console(),
-                new winston.transports.File({ filename: 'logs.log' })
+                new winston.transports.File({ filename: 'logs.log', dirname: path.resolve(__dirname, '..', '..', 'logs',) })
             ],
         });
     }
 
     info(message: string, context?: string) {
+        console.log(path.resolve(__dirname, '..', '..', 'logs'))
         this.logger.info(message, { context });
     }
 

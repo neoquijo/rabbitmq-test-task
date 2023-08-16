@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { Ms1Controller } from './ms1.controller';
-
 import { Ms1Service } from './ms1.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { RmqModule } from 'shared/RMQ/rmq.module';
@@ -14,7 +13,6 @@ import { LooggerModule } from 'shared/Logger/logger.module';
   ],
   controllers: [Ms1Controller],
   providers: [
-
     Ms1Service,
     ConfigService
   ],

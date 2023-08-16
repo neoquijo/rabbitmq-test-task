@@ -1,7 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
 import { Ms1Service } from './ms1.service';
-import { Ctx, MessagePattern, NatsContext, Payload } from '@nestjs/microservices';
-import { lastValueFrom } from 'rxjs';
 
 @Controller()
 export class Ms1Controller {
@@ -9,8 +7,14 @@ export class Ms1Controller {
 
   @Get()
   async main() {
-    return await this.crateTask()
+    return await this.ms1Service.createTask()
   }
+
+  @Get('/logs')
+  getLogs() {
+    return this.getLogs()
+  }
+
 
   @Get('/create')
   async crateTask() {

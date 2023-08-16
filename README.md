@@ -35,10 +35,6 @@ Endpoints
     /: The main endpoint of the app, also is the same as /create.
     /create: Simulates the creation of tasks via the RabbitMQ microservice.
     /remove: Simulates the removal of tasks via the RabbitMQ microservice.
+    /logs: Get access log
 
-Usage
-
-    Access http://localhost:3000 to see the main page of the app.
-    Access http://localhost:3000/create to simulate creating tasks.
-    Access http://localhost:3000/remove to simulate removing tasks.
 

@@ -1,8 +1,10 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
 import { Task } from 'domain/Tasks/models/ITask';
-import { Observable, catchError, firstValueFrom, lastValueFrom, tap } from 'rxjs';
+import { Observable, lastValueFrom, tap } from 'rxjs';
 import { LoggerService } from 'shared/Logger/logger.service';
+import * as fs from 'fs/promises'
+import * as path from 'path';
 
 @Injectable()
 export class Ms1Service {
@@ -23,12 +25,22 @@ export class Ms1Service {
     }
   }
 
+  async getLogs() {
+    try {
+      const filePath = path.resolve(__dirname, '..', '..', 'logs')
+      const fileContent = await fs.readFile(filePath + '/logs.log', 'utf-8');
+      return fileContent;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
 
   createTask() {
     return this.send('create', { id: 'noseque', createdAt: new Date(), type: 'create' })
   }
 
   deleteTask() {
-    return this.send('create', { id: 'noseque', createdAt: new Date(), type: 'create' })
+    return this.send('delete', { id: 'noseque', createdAt: new Date(), type: 'create' })
   }
 }
